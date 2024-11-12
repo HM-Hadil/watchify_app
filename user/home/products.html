@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="products.css">
+</head>
+<body>
+    <!-- Product Section -->
+<section class="product-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Explore Our Collection</h2>
+
+        <!-- Filter and Sort Options -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <select class="form-control" id="sortOptions">
+                    <option value="new">Newest Arrivals</option>
+                    <option value="priceAsc">Price: Low to High</option>
+                    <option value="priceDesc">Price: High to Low</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-control" id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="luxury">Luxury</option>
+                    <option value="sport">Sport</option>
+                    <option value="classic">Classic</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="row">
+            <!-- Product Card 1 -->
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi8llzbEmsnE9Im5u8i4dq1_KTpyfu5Z9sUg&s" class="card-img-top" alt="Watch 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Elegant Gold Watch</h5>
+                        <p class="card-text">$350</p>
+                        <a href="#" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSueJm5wG8sdBps5F2Fb_n0hAgoZPPxgbA7_A&s" class="card-img-top" alt="Watch 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Modern Steel Watch</h5>
+                        <p class="card-text">$299</p>
+                        <a href="#" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTciZhYlaMyAcz146Igi4iBJt81DAYbYkOPTg&s" class="card-img-top" alt="Watch 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Modern Steel Watch</h5>
+                        <p class="card-text">$299</p>
+                        <a href="#" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card shadow-sm">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6wjpgJLuIlZYrGjMyhfqFX-ra7pgohxWfUw&s" class="card-img-top" alt="Watch 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Modern Steel Watch</h5>
+                        <p class="card-text">$299</p>
+                        <a href="#" class="btn btn-outline-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center mt-4">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
