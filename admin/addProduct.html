@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un produit</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Product Add Form -->
+<section class="container my-5">
+    <h2 class="text-center mb-4">Ajouter un Produit</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <!-- Form to add product -->
+            <form action="add_product.php" method="POST" enctype="multipart/form-data">
+                <!-- Product Name -->
+                <div class="form-group">
+                    <label for="nameProduct">Nom du produit</label>
+                    <input type="text" name="nameProduct" class="form-control" id="nameProduct" required>
+                </div>
+                
+                <!-- Product Description -->
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea name="description" class="form-control" id="description" required></textarea>
+                </div>
+                
+                <!-- Product Price -->
+                <div class="form-group">
+                    <label for="price">Prix</label>
+                    <input type="number" name="price" class="form-control" id="price" required>
+                </div>
+                
+                <!-- Product Stock -->
+                <div class="form-group">
+                    <label for="stock">Quantité en stock</label>
+                    <input type="number" name="stock" class="form-control" id="stock" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Genre</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" value="Homme" id="genderHomme" required>
+                        <label class="form-check-label" for="genderHomme">Homme</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" value="Femme" id="genderFemme" required>
+                        <label class="form-check-label" for="genderFemme">Femme</label>
+                    </div>
+                </div>
+                <!-- Product Color -->
+                <div class="form-group">
+                    <label for="color">Couleur</label>
+                    <input type="text" name="color" class="form-control" id="color" required>
+                </div>
+                
+                <!-- Product Image -->
+                <div class="form-group">
+                    <label for="productImage">Image du produit</label>
+                    <input type="file" name="productImage" class="form-control" id="productImage" required>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" class="btn btn-primary btn-block mt-4">Ajouter le produit</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,12 +22,17 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" href="homePage.html">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#" onclick="loadPage('panier.html')">Panier</a></li>
-                    <li class="nav-item"><a class="nav-link text-success" href="#">Hammami Hadil</a></li>
-                    <li class="nav-item"><a class="nav-link text-danger" href="#">Déconnexion</a></li>
-
+                    <li class="nav-item"><a class="nav-link" onclick="loadPage('panier.html')">Panier</a></li>
+                    <?php if (isset($_SESSION['user_fullName'])): ?>
+                        <li class="nav-item"><a class="nav-link text-success" href="#"><?= $_SESSION['user_fullName']; ?></a></li>
+                    <?php else: ?>
+                        <li class="nav-item"><a class="nav-link" href="connexion.php">Connexion</a></li>
+                    <?php endif; ?>
+                    <?php if (isset($_SESSION['user_id'])): ?>
+                        <li class="nav-item"><a class="nav-link text-danger" href="logout.php">Déconnexion</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </div>
@@ -49,23 +56,13 @@
 <!-- JavaScript for Loading Pages Dynamically -->
 <script>
     function loadPage(page) {
-        // Prevent the page from actually redirecting
         event.preventDefault();
-
-        // Fetch and load the content
         fetch(page)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.text(); 
-            })
+            .then(response => response.text())
             .then(html => {
                 document.getElementById('mainContent').innerHTML = html;
             })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
+            .catch(error => console.error('There was a problem with the fetch operation:', error));
     }
 </script>
 

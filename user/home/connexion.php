@@ -9,6 +9,7 @@ include 'config_connexion.php';
 // Initialize variables for error messages
 $error = '';
 $success = '';
+session_start();
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -23,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "L'adresse e-mail est invalide.";
     } else {
         // Check if the email exists in the database
-        $stmt = $conn->prepare("SELECT id, password FROM user WHERE email = ?");
+        $stmt = $conn->prepare("SELECT id, fullName, password FROM user WHERE email = ?");
         if (!$stmt) {
             die('Query preparation failed: ' . $conn->error);  // Debugging line
         }
@@ -34,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // If the email exists
         if ($stmt->num_rows > 0) {
-            $stmt->bind_result($id, $hashed_password);
+            $stmt->bind_result($id, $fullName, $hashed_password);
             $stmt->fetch();
 
             // Verify the password
@@ -43,7 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 session_start(); // Start a session
                 $_SESSION['user_id'] = $id; // Store the user ID in the session
                 $_SESSION['user_email'] = $email; // Store the email in the session
-                header("Location: userProfile.html"); // Redirect to home page
+                $_SESSION['user_fullName'] = $fullName; // Store full name in the session
+
+                header("Location: userProfile.php"); // Redirect to user profile page
                 exit;
             } else {
                 $error = "Mot de passe incorrect.";
@@ -67,8 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Se connecter</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Add Bootstrap or any other stylesheets if needed -->
 </head>
 <body>
     <!-- Connexion Section -->
